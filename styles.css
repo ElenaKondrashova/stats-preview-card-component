@@ -27,17 +27,17 @@ body {
     min-height: 100vh;
 }
 
+/* Mobile version styling start */
 .card {
-    margin: 88px auto;
-    width: 100%;
-    max-width: 327px;
-    height: 780px;
     background: var(--dark-saturatedblue-cardbg);
+    width: 100%;
+    max-width: 1110px;
     box-shadow: 0px 20px 20px -10px rgba(23, 25, 41, 0.203087);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 img.desktop {
@@ -45,13 +45,12 @@ img.desktop {
 }
 
 img.mobile {
-    width: 100%;
-    max-width: 327px;
-    height: 240px;
+    max-width: 100%;
     border-radius: 8px 8px 0 0;
     display: block;
 }
 
+/* Violet overlay styling */
 .overlay {
     position: relative;
 }
@@ -65,25 +64,27 @@ img.mobile {
     width: 100%;
     border-radius: 8px 8px 0 0;
     background: var(--soft-violet);
-    opacity: 0.75;
-    mix-blend-mode: normal;
+    opacity: 0.95;
+    mix-blend-mode: multiply;
     z-index: 2;
+}
+
+.info {
+    padding: 0 32px;
 }
 
 .info h1,
 p {
     width: 100%;
-    max-width: 264px;
+    max-width: 500px;
 }
 
 .title {
-    height: 96px;
     font-size: 28px;
     font-style: normal;
     font-weight: 700;
     color: var(--white);
     line-height: 32px;
-    text-align: center;
     padding: 40px 0 16px 0;
 }
 
@@ -98,18 +99,18 @@ p {
     font-weight: 400px;
     color: var(--slightly-transparent-white-main);
     line-height: 25px;
-    text-align: center;
+
 }
 
-.stat:first-child {
+div.one {
     padding: 40px 0 24px 0;
 }
 
-.stat:nth-child(2) {
+div.two {
     padding: 0 0 24px 0;
 }
 
-.stat:last-child {
+div.three {
     padding: 0 0 32px 0;
 }
 
@@ -120,7 +121,6 @@ p {
     font-weight: 700;
     font-style: normal;
     color: var(--white);
-    text-align: center;
     padding-bottom: 2px;
 }
 
@@ -133,13 +133,75 @@ p {
     text-transform: uppercase;
     font-family: 'Lexend Deca', sans-serif;
     color: var(--slightly-transparent-white-stats);
-    text-align: center;
 }
 
+/* Mobile version styling end */
+
+
+/* Desktop version styling start */
+@media (min-width: 1440px) {
+    .card {
+        flex-direction: row-reverse;
+        justify-items: left;
+    }
+
+    img.mobile {
+        display: none;
+    }
+
+    img.desktop {
+        display: block;
+        height: 100%;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .overlay::before {
+        border-radius: 0 8px 8px 0;
+        background: var(--soft-violet);
+        opacity: 0.95;
+        mix-blend-mode: multiply;
+    }
+
+    .info {
+        padding: 0;
+        margin: 71px 95px 59px 72px;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .title {
+        padding: 0;
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    .description {
+        padding: 25px 0 72px 0;
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+    div.one {
+        padding: 0 63px 0 0;
+    }
+
+    div.two {
+        padding: 0 60px 0 0;
+    }
+
+    div.three {
+        padding: 0;
+    }
+}
+
+/* Attribution styling */
 .attribution {
     font-size: 11px;
     text-align: center;
     color: var(--slightly-transparent-white-stats);
+    margin-top: 20px;
 }
 
 .attribution a {
